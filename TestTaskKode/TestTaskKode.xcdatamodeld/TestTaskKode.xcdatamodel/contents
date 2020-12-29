@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17511" systemVersion="19H15" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="City" representedClassName="City" syncable="YES" codeGenerationType="class">
+        <attribute name="latitude" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="longitude" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="name" attributeType="String"/>
+    </entity>
+    <entity name="Museums" representedClassName="Museums" syncable="YES" codeGenerationType="class">
+        <attribute name="city" attributeType="String"/>
+        <attribute name="fullDesc" attributeType="String"/>
+        <attribute name="imageURL" attributeType="String"/>
+        <attribute name="latitudeMus" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="longitudeMus" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="nameMus" attributeType="String"/>
+        <attribute name="shortDesc" attributeType="String"/>
+    </entity>
+    <elements>
+        <element name="City" positionX="-460" positionY="-223.5" width="128" height="88"/>
+        <element name="Museums" positionX="-63" positionY="-18" width="128" height="148"/>
+    </elements>
+</model>
