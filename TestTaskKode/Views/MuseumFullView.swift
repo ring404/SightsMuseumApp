@@ -37,22 +37,28 @@ struct MuseumFullView: View {
     @State var region = MKCoordinateRegion()
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 0) {
+        ScrollView(.vertical) {
+        VStack(alignment: .leading, spacing: .none) {
         Image(museums.first!.imageURL!)
             .resizable()
             .aspectRatio(contentMode: .fill)
-            .frame(width: UIScreen.screenWidth , height: UIScreen.screenWidth * 0.53, alignment: .top)
+            .frame(width: UIScreen.screenWidth , height: UIScreen.screenWidth * 0.7, alignment: .top)
 
-            Text(museums.first!.nameMus!).font(.largeTitle)
+            Text(museums.first!.nameMus!).font(.title)
 //                .padding()
-
-            VStack(alignment: .leading, spacing: 0) {
+                .multilineTextAlignment(.center)
+                .lineLimit(5)
+//                .frame(width:  UIScreen.screenWidth ,  alignment: .center)
+                .frame(width: UIScreen.screenWidth, height: UIScreen.screenWidth * 0.2, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+            VStack(alignment: .trailing, spacing: .none) {
                 Text(museums.first!.fullDesc!)
-                    .lineLimit(3)
+                    .lineLimit(5)
                     .multilineTextAlignment(.leading)
+                    .frame(width: UIScreen.screenWidth, height: UIScreen.screenWidth * 0.3, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                 Text("check more info link").font(.footnote).foregroundColor(.blue).padding(.top, 2)
 
-            }.padding()
+            }
+//            .padding()
 
             VStack(alignment: .leading, spacing: 0) {
                 Text("On the Map").font(.title).padding()
@@ -63,7 +69,7 @@ struct MuseumFullView: View {
                         .onAppear {
                             region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: museums.first!.latitudeMus, longitude: museums.first!.longitudeMus), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)) }
 
-                        .frame(width: UIScreen.screenWidth, height: UIScreen.screenWidth * 0.5)
+                        .frame(width: UIScreen.screenWidth, height: UIScreen.screenWidth * 0.6)
 
                 }
             } .frame(width:  UIScreen.screenWidth ,  alignment: .center)
@@ -71,6 +77,7 @@ struct MuseumFullView: View {
         .background(Color(UIColor(red: 0.118, green: 0.118, blue: 0.118, alpha: 1)))
         .foregroundColor(.white)
         .ignoresSafeArea(.container, edges: .bottom)
+        }
     }
 }
 

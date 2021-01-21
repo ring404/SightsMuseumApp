@@ -74,7 +74,11 @@ struct PersistenceController {
 
         })
 
+        
+//        here is bad mistake -- one fetch for two dirrerent entities
         let fetch : NSFetchRequest<City> = City.fetchRequest()
+//        let cityFetch : NSFetchRequest<City> = City.fetchRequest()
+//        let museumFetch : NSFetchRequest<Museums> = Museums.fetchRequest()
 
                 let viewContext = container.viewContext
             let allRecords =  try?  viewContext.fetch(fetch)

@@ -35,11 +35,11 @@ struct MapCity: View {
 
     var body: some View {
 
-        Map(coordinateRegion: $region)
+        Map(coordinateRegion: $region )
             .onAppear {
                 region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: cities.first!.latitude, longitude: cities.first!.longitude), span: MKCoordinateSpan(latitudeDelta: 0.3, longitudeDelta: 0.3)) }
 
-            .frame(width: UIScreen.screenWidth, height: UIScreen.screenWidth * 0.38)
+            .frame(width: UIScreen.screenWidth, height: UIScreen.screenWidth * 0.65)
 
     }
 

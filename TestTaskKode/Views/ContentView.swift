@@ -47,12 +47,13 @@ struct WeatherInCityScreen: View {
 
     @State private var activateLink: Bool = false
     var body: some View {
-
+        ScrollView(.vertical) {
         VStack {
 
             MapCity(filter: currentCityString, currentCityString: currentCityString, theCity: City())
 
                 .navigationBarBackButtonHidden(true)
+                .navigationBarTitleDisplayMode(.inline)
                 .navigationBarItems(leading: Button(action: {
                         self.mode.wrappedValue.dismiss()
                 }) {
@@ -89,7 +90,11 @@ struct WeatherInCityScreen: View {
                         .cornerRadius(10)
                 }
                 if currentCityString == "Нью-Йорк" {
-                    Button("Достопримечательности", action: { self.activateLink = true })
+                    Button("Достопримечательности")
+                    {
+                   
+                        self.activateLink = true
+                        }
                         .foregroundColor(.white)
                         .frame(width: UIScreen.screenWidth - 18, height: UIScreen.screenWidth * 0.1645, alignment: .center)
                         .background(Color.blue)
@@ -98,7 +103,7 @@ struct WeatherInCityScreen: View {
 
             }.navigationBarTitle("Погода в городе")
 
-            Spacer()
+        }
 
     }
 
@@ -110,24 +115,38 @@ struct MuseumsListScreen: View {
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
 
     var body: some View {
-
+        ScrollView(.vertical) {
         VStack(alignment: .leading, spacing: 0) {
 
             MuseumCard(filter: currentCityString, currentMuseumString: currentCityString, currentCityString: currentCityString)
 
                 .navigationBarBackButtonHidden(true)
-                .navigationBarTitle("Достопримечательности")
-                .navigationBarItems(leading: Button(action: {
-                        self.mode.wrappedValue.dismiss()
-                }) {
-                        Image(systemName: "chevron.backward")
-                    })
+                .navigationBarTitleDisplayMode(.inline)
+                .navigationBarItems(leading:
+                             HStack {
+                    Image(systemName: "chevron.backward")
+                        .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
+                        .onTapGesture {
+                                print("Tapped!")
+                            self.mode.wrappedValue.dismiss()
+                            }
+                                
+    //
+                             }, trailing:
+                                VStack (alignment: .trailing, spacing: .none, content: {
+                                    Text("Достопримечательности")
+                                        .foregroundColor(.white)
+                                        .colorInvert()
+                                        
+                                    
+                                })
+                         )
 
         }.padding(.horizontal, 50)
             .background(Color(UIColor(red: 0.118, green: 0.118, blue: 0.118, alpha: 1)))
             .colorInvert()
             .ignoresSafeArea(.container, edges: .bottom)
-
+        }
     }
 }
 
@@ -135,19 +154,47 @@ struct MuseumFullDescScreen: View {
     @State private var activateLink: Bool = false
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
     var currMuseum: String
+    var currentCityString:String
+  
 
     var body: some View {
 
+        let getMuseums = FetchMuseums.init(filter:  "", currentMuseumString: currentCityString)
+        
+        ForEach(getMuseums.museumsFetched) { item in
+            Text(item.nameMus!)
+        }
         MuseumFullView(filter: currMuseum, currentMuseumString: currMuseum).colorInvert()
 
             .navigationBarBackButtonHidden(true)
-            .navigationBarTitle("Достопримечательность")
-            .navigationBarItems(leading: Button(action: {
-                    self.mode.wrappedValue.dismiss()
-            }) {
-                    Image(systemName: "chevron.backward")
-                })
-
+            .navigationBarTitleDisplayMode(.inline)
+//            .navigationBarTitle("Достопримечательность")
+//            Button(action: {}) { Text("Start") }
+            
+            .navigationBarItems(leading:
+                         HStack {
+                Image(systemName: "chevron.backward")
+                    .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
+                    .onTapGesture {
+                            print("Tapped!")
+                        self.mode.wrappedValue.dismiss()
+                        }
+                            
+//
+                         }, trailing:
+                            VStack (alignment: .trailing, spacing: .none, content: {
+                                Text("Достопримечательность")
+                                    .foregroundColor(.white)
+                                    .colorInvert()
+                                    
+                                
+                            })
+                     )
+//            .navigationBarItems(leading: Text(super test), trailing:  Button(action: {
+//                    self.mode.wrappedValue.dismiss()
+//            }) {
+//                    Image(systemName: "chevron.backward")
+//                })
     }
 }
 
@@ -155,7 +202,7 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
             .environment(\.colorScheme, .dark)
-        MuseumsListScreen(currentCityString: "Калининград")
+        MuseumsListScreen(currentCityString: "Париж")
 
     }
 }

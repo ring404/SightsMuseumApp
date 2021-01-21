@@ -9,13 +9,20 @@ import SwiftUI
 
 struct SearchBarView: View {
 
-   let citiesArrSearch = ["Нью-Йорк","Париж","Калининград", "Москва","Гурьевск"]
-
+   var citiesArrSearch = ["Нью-Йорк","Париж","Калининград", "Москва","Гурьевск"]
+    var lowerCasedcitiesArrSearch = [String]()
+    init() {
+//        let lowerCasedcitiesArrSearch = citiesArrSearch.toLowerCase()
+        for word in citiesArrSearch {
+//            lowerCasedcitiesArrSearch.append  =  word.lowercased()
+            lowerCasedcitiesArrSearch.append(word.lowercased())
+            }
+    }
     let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
 
     @State private var searchText = ""
     @State private var showCancelButton: Bool = false
-
+    
     var body: some View {
 
         NavigationView {
@@ -56,13 +63,13 @@ struct SearchBarView: View {
                 }
 
                 .padding(.horizontal)
-                .navigationBarHidden(showCancelButton)
-
+                .navigationBarHidden(true)
                 List {
 
-                    ForEach(citiesArrSearch.filter {$0.hasPrefix(searchText) || searchText == ""}, id:\.self) {
+                    ForEach(citiesArrSearch.filter {$0.hasPrefixIgnoringCase(searchText) || searchText == ""}, id:\.self) {
                         searchText in
                         NavigationLink(
+//                            !! nafiga ego tuda peredavat'
                             destination: WeatherInCityScreen(currentCityString: searchText),
                             label: {
                                 Text(searchText)
@@ -111,5 +118,11 @@ struct ResignKeyboardOnDragGesture: ViewModifier {
 extension View {
     func resignKeyboardOnDragGesture() -> some View {
         return modifier(ResignKeyboardOnDragGesture())
+    }
+}
+
+extension String {
+     func hasPrefixIgnoringCase(_ prefix: String) -> Bool {
+        range(of: prefix, options: [.anchored, .caseInsensitive]) != nil
     }
 }

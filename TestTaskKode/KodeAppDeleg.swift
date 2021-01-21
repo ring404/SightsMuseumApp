@@ -25,17 +25,26 @@ class AppDelegate:  UIResponder, UIApplicationDelegate {
 
         let appearance = UINavigationBarAppearance()
 
-        appearance.configureWithOpaqueBackground()
+        appearance.configureWithTransparentBackground()
         appearance.backgroundColor = UIColor(red: 0.118, green: 0.118, blue: 0.118, alpha: 1)
 
         let attrs: [NSAttributedString.Key: Any] = [
             .foregroundColor: UIColor.white,
-            .font: UIFont.monospacedSystemFont(ofSize: 24, weight: .black)
+//            .font: UIFont.monospacedSystemFont(ofSize: 24, weight: .black)
+               
         ]
-
+        
         appearance.largeTitleTextAttributes = attrs
 
         UINavigationBar.appearance().scrollEdgeAppearance = appearance
+        
+        
+        appearance.shadowImage = UIImage()
+        appearance.shadowColor = .clear
+        
+        UINavigationBar.appearance().standardAppearance = appearance
+               UINavigationBar.appearance().compactAppearance = appearance
+               UINavigationBar.appearance().scrollEdgeAppearance = appearance
 
         return true
     }
