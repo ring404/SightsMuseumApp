@@ -26,10 +26,10 @@ class AppDelegate:  UIResponder, UIApplicationDelegate {
         let appearance = UINavigationBarAppearance()
 
         appearance.configureWithTransparentBackground()
-        appearance.backgroundColor = UIColor(red: 0.118, green: 0.118, blue: 0.118, alpha: 1)
+//        appearance.backgroundColor = UIColor(red: 0.118, green: 0.118, blue: 0.118, alpha: 1)
 
         let attrs: [NSAttributedString.Key: Any] = [
-            .foregroundColor: UIColor.white,
+            .foregroundColor: UIColor.orange,
 //            .font: UIFont.monospacedSystemFont(ofSize: 24, weight: .black)
                
         ]
@@ -78,4 +78,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
     }
 
+}
+
+// add gesture "back" to screens, cause originally it was removed by .navigationBarHidden(true)
+extension UINavigationController: UIGestureRecognizerDelegate {
+    override open func viewDidLoad() {
+        super.viewDidLoad()
+        interactivePopGestureRecognizer?.delegate = self
+    }
+
+    public func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+        return viewControllers.count > 1
+    }
 }

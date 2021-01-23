@@ -18,10 +18,14 @@ struct MuseumFullView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @FetchRequest(sortDescriptors: []) private var museums: FetchedResults<Museums>
     @State var filter: String = ""
+    @State var numbersOfLinestext = 5
+    @State var moreInfoExpanded = false
 
     init(filter: String,  currentMuseumString: String) {
 
         self.currentMuseumString = currentMuseumString
+        self.numbersOfLinestext = numbersOfLinestext
+        self.moreInfoExpanded = moreInfoExpanded
 
         self.filter = filter
         let ascendingNameSortDescriptor = NSSortDescriptor(keyPath: \Museums.nameMus, ascending: true)
@@ -35,8 +39,8 @@ struct MuseumFullView: View {
     }
 
     @State var region = MKCoordinateRegion()
-
     var body: some View {
+//        var test = CGFloat(self.numbersOfLinestext / 5)
         ScrollView(.vertical) {
         VStack(alignment: .leading, spacing: .none) {
         Image(museums.first!.imageURL!)
@@ -47,16 +51,29 @@ struct MuseumFullView: View {
             Text(museums.first!.nameMus!).font(.title)
 //                .padding()
                 .multilineTextAlignment(.center)
-                .lineLimit(5)
+                .lineLimit(2)
 //                .frame(width:  UIScreen.screenWidth ,  alignment: .center)
                 .frame(width: UIScreen.screenWidth, height: UIScreen.screenWidth * 0.2, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
             VStack(alignment: .trailing, spacing: .none) {
                 Text(museums.first!.fullDesc!)
-                    .lineLimit(5)
+//                Text(String(format: "", numbersOfLinestext ?? "def"))
+                    .lineLimit(self.numbersOfLinestext)
                     .multilineTextAlignment(.leading)
-                    .frame(width: UIScreen.screenWidth, height: UIScreen.screenWidth * 0.3, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                Text("check more info link").font(.footnote).foregroundColor(.blue).padding(.top, 2)
-
+                    .frame(width: UIScreen.screenWidth, height: UIScreen.screenWidth * 0.3 * CGFloat(self.numbersOfLinestext / 5), alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+//                Text("check more info link").font(.footnote).foregroundColor(.blue).padding(.top, 2)
+                                                if self.moreInfoExpanded {
+                                                Text("click here to fold").font(.footnote).foregroundColor(.blue).padding(.top, 2)
+                                                    .onTapGesture {
+                                                        self.numbersOfLinestext = 5
+                                                        self.moreInfoExpanded = false
+                                                }
+                 } else {
+                                                    Text("click here to expand").font(.footnote).foregroundColor(.blue).padding(.top, 2)
+                                                        .onTapGesture {
+                                                            self.moreInfoExpanded = true
+                                                            self.numbersOfLinestext = 15
+                                                }
+                                            }
             }
 //            .padding()
 

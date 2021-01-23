@@ -83,6 +83,7 @@ struct SearchBarView: View {
                 .resignKeyboardOnDragGesture()
             }
         }.colorInvert()
+        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 

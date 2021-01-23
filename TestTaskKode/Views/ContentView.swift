@@ -54,22 +54,29 @@ struct WeatherInCityScreen: View {
 
                 .navigationBarBackButtonHidden(true)
                 .navigationBarTitleDisplayMode(.inline)
-                .navigationBarItems(leading: Button(action: {
-                        self.mode.wrappedValue.dismiss()
-                }) {
-                        Image(systemName: "chevron.backward")
-                    })
+                .navigationBarItems(leading:
+                                        HStack {
+                                           Image(systemName: "chevron.backward").frame(width: 25, height: 30)
+                                               .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
+                                           Spacer().frame(height: 30)
+                                   .contentShape(Rectangle())
+                                   .onTapGesture {
+                                           print("Tapped!")
+                                       self.mode.wrappedValue.dismiss()
+                                   }
+                             })
         }
             .background(Color(UIColor(red: 0.118, green: 0.118, blue: 0.118, alpha: 1)))
             .ignoresSafeArea(.container, edges: .bottom)
             .colorInvert()
-
+//            VStack {
             CurrentCityView(currentCityString: currentCityString)
                 .colorInvert()
             DayLabelViewToday()
                 .colorInvert()
             WeatherScrollArr(whichDay: "Today")
-                .background(Color(UIColor(red: 0.118, green: 0.118, blue: 0.118, alpha: 1)))
+//                .background(Color(UIColor(red: 0.118, green: 0.118, blue: 0.118, alpha: 1)))
+                .background(Color(.black))
                 .ignoresSafeArea(.container, edges: .bottom)
                 .colorInvert()
 
@@ -77,7 +84,8 @@ struct WeatherInCityScreen: View {
                 .colorInvert()
             WeatherScrollArr(whichDay: "Tomorrow")
 
-            .background(Color(UIColor(red: 0.118, green: 0.118, blue: 0.118, alpha: 1)))
+//            .background(Color(UIColor(red: 0.118, green: 0.118, blue: 0.118, alpha: 1)))
+                .background(Color(.black))
             .ignoresSafeArea(.container, edges: .bottom)
             .colorInvert()
 
@@ -92,17 +100,15 @@ struct WeatherInCityScreen: View {
                 if currentCityString == "Нью-Йорк" {
                     Button("Достопримечательности")
                     {
-                   
                         self.activateLink = true
                         }
                         .foregroundColor(.white)
                         .frame(width: UIScreen.screenWidth - 18, height: UIScreen.screenWidth * 0.1645, alignment: .center)
                         .background(Color.blue)
                         .cornerRadius(10)
-                }
 
+            }
             }.navigationBarTitle("Погода в городе")
-
         }
 
     }
@@ -123,25 +129,18 @@ struct MuseumsListScreen: View {
                 .navigationBarBackButtonHidden(true)
                 .navigationBarTitleDisplayMode(.inline)
                 .navigationBarItems(leading:
-                             HStack {
-                    Image(systemName: "chevron.backward")
-                        .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
-                        .onTapGesture {
-                                print("Tapped!")
-                            self.mode.wrappedValue.dismiss()
-                            }
-                                
-    //
-                             }, trailing:
-                                VStack (alignment: .trailing, spacing: .none, content: {
-                                    Text("Достопримечательности")
-                                        .foregroundColor(.white)
-                                        .colorInvert()
-                                        
-                                    
-                                })
-                         )
+                                        HStack {
+                                           Image(systemName: "chevron.backward").frame(width: 25, height: 30)
+                                               .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
+                                           Spacer().frame(height: 30)
+                                   .contentShape(Rectangle())
+                                   .onTapGesture {
+                                           print("Tapped!")
+                                       self.mode.wrappedValue.dismiss()
+                                   }
 
+                             })
+                .navigationBarTitle("Достопримечательности")
         }.padding(.horizontal, 50)
             .background(Color(UIColor(red: 0.118, green: 0.118, blue: 0.118, alpha: 1)))
             .colorInvert()
@@ -155,12 +154,9 @@ struct MuseumFullDescScreen: View {
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
     var currMuseum: String
     var currentCityString:String
-  
-
     var body: some View {
 
         let getMuseums = FetchMuseums.init(filter:  "", currentMuseumString: currentCityString)
-        
         ForEach(getMuseums.museumsFetched) { item in
             Text(item.nameMus!)
         }
@@ -168,33 +164,18 @@ struct MuseumFullDescScreen: View {
 
             .navigationBarBackButtonHidden(true)
             .navigationBarTitleDisplayMode(.inline)
-//            .navigationBarTitle("Достопримечательность")
-//            Button(action: {}) { Text("Start") }
-            
             .navigationBarItems(leading:
-                         HStack {
-                Image(systemName: "chevron.backward")
-                    .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
-                    .onTapGesture {
-                            print("Tapped!")
-                        self.mode.wrappedValue.dismiss()
-                        }
-                            
-//
-                         }, trailing:
-                            VStack (alignment: .trailing, spacing: .none, content: {
-                                Text("Достопримечательность")
-                                    .foregroundColor(.white)
-                                    .colorInvert()
-                                    
-                                
-                            })
-                     )
-//            .navigationBarItems(leading: Text(super test), trailing:  Button(action: {
-//                    self.mode.wrappedValue.dismiss()
-//            }) {
-//                    Image(systemName: "chevron.backward")
-//                })
+                                    HStack {
+                                       Image(systemName: "chevron.backward").frame(width: 25, height: 30)
+                                           .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
+                                       Spacer().frame(height: 30)
+                               .contentShape(Rectangle())
+                               .onTapGesture {
+                                       print("Tapped!")
+                                   self.mode.wrappedValue.dismiss()
+                               }
+                         })
+            .navigationBarTitle("Достопримечательность")
     }
 }
 
