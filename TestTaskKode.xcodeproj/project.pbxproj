@@ -58,6 +58,7 @@
 		DE85EB2A2554812800A6051E /* TestTaskKodeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestTaskKodeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE91C5962555A54F009E6C38 /* WeatherSquareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherSquareView.swift; sourceTree = "<group>"; };
 		DE91C59B2555A866009E6C38 /* WeatherScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherScrollView.swift; sourceTree = "<group>"; };
+		DEA1C44325BC234300C65C0B /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		DEB48E432555B71B007F36AC /* CurrentCityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentCityView.swift; sourceTree = "<group>"; };
 		DEB48E482555B8B8007F36AC /* DayLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayLabelView.swift; sourceTree = "<group>"; };
 		DEE26EDF25582FC5003C0710 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
@@ -115,6 +116,7 @@
 		DE85EB002554812700A6051E = {
 			isa = PBXGroup;
 			children = (
+				DEA1C44325BC234300C65C0B /* README.md */,
 				DEEDBC25259B43850031B8A2 /* .swiftlint.yml */,
 				DE85EB0B2554812700A6051E /* TestTaskKode */,
 				DE85EB0A2554812700A6051E /* Products */,
