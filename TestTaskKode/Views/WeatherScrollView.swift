@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import MapKit
 
 struct WeatherScroll: View {
 
@@ -30,9 +31,11 @@ struct WeatherScrollArr: View {
 //    var weatherArray =  Api().getPosts(completion: [Hourly]())
 //    var weatherMain = weatherArray.weather[0].main
     @State var hourlyResults  = [Hourly]()
+//    here I need to finish the slicing
     @State var todaysHourlyResults = ArraySlice<Hourly>()
     @State var tomorrowsHourlyResults = ArraySlice<Hourly>()
     var whichDay :String
+    var currentCityCoord:CLLocationCoordinate2D
 
     var body: some View {
 
@@ -61,7 +64,7 @@ struct WeatherScrollArr: View {
 
                 print("It's finally loading")
                 //ApiTest().getPostsTest()
-                Api().getPosts { (result) in
+            Api().getPosts(currCityCoord: currentCityCoord) { (result) in
                     self.hourlyResults = result.hourly
                     self.todaysHourlyResults = result.hourly[0..<24]
                     self.tomorrowsHourlyResults = result.hourly[24..<self.hourlyResults.count]

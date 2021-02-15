@@ -33,9 +33,9 @@ struct WeatherList: View {
 
                     print("It's finally loading")
 
-                Api().getPosts { (result) in
-                        self.hourlyResults = result.hourly
-                    }
+//                Api().getPosts(currCityCoord: currentCityCoord) { (result) in
+//                        self.hourlyResults = result.hourly
+//                    }
                 }
 
         }.background(Color.blue.opacity(0.3))

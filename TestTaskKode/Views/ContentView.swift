@@ -40,18 +40,19 @@ struct ContentView: View {
 struct WeatherInCityScreen: View {
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
     var currentCityString: String
-
-    init(currentCityString: String) {
+    var currentCityLat:Double
+    var currentCityLon:Double
+    init(currentCityString: String, currentCityLat:Double, currentCityLon:Double ) {
         self.currentCityString = currentCityString
+        self.currentCityLat = currentCityLat
+        self.currentCityLon = currentCityLon
     }
-
     @State private var activateLink: Bool = false
     var body: some View {
         ScrollView(.vertical) {
         VStack {
 
             MapCity(filter: currentCityString, currentCityString: currentCityString, theCity: City())
-
                 .navigationBarBackButtonHidden(true)
                 .navigationBarTitleDisplayMode(.inline)
                 .navigationBarItems(leading:
@@ -69,12 +70,12 @@ struct WeatherInCityScreen: View {
             .background(Color(UIColor(red: 0.118, green: 0.118, blue: 0.118, alpha: 1)))
             .ignoresSafeArea(.container, edges: .bottom)
             .colorInvert()
-//            VStack {
+            VStack {
             CurrentCityView(currentCityString: currentCityString)
                 .colorInvert()
             DayLabelViewToday()
                 .colorInvert()
-            WeatherScrollArr(whichDay: "Today")
+            WeatherScrollArr(whichDay: "Today", currentCityCoord: CLLocationCoordinate2D(latitude: currentCityLat, longitude: currentCityLon))
 //                .background(Color(UIColor(red: 0.118, green: 0.118, blue: 0.118, alpha: 1)))
                 .background(Color(.black))
                 .ignoresSafeArea(.container, edges: .bottom)
@@ -82,7 +83,7 @@ struct WeatherInCityScreen: View {
 
             DayLabelViewTomorrow()
                 .colorInvert()
-            WeatherScrollArr(whichDay: "Tomorrow")
+            WeatherScrollArr(whichDay: "Tomorrow", currentCityCoord: CLLocationCoordinate2D(latitude: currentCityLat, longitude: currentCityLon))
 
 //            .background(Color(UIColor(red: 0.118, green: 0.118, blue: 0.118, alpha: 1)))
                 .background(Color(.black))
@@ -109,6 +110,7 @@ struct WeatherInCityScreen: View {
 
             }
             }.navigationBarTitle("Погода в городе")
+        }
         }
 
     }

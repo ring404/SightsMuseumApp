@@ -10,6 +10,8 @@ import SwiftUI
 struct SearchBarView: View {
 
    var citiesArrSearch = ["Нью-Йорк","Париж","Калининград", "Москва","Гурьевск"]
+    var latitudeArr: [Double] = [40.6971494,48.8588377,54.7115288,55.5807481,54.7805993]
+    var longArr: [Double] = [-74.2598636,2.2770204,20.3244485,36.8251361,20.597617]
     var lowerCasedcitiesArrSearch = [String]()
     init() {
 //        let lowerCasedcitiesArrSearch = citiesArrSearch.toLowerCase()
@@ -70,7 +72,7 @@ struct SearchBarView: View {
                         searchText in
                         NavigationLink(
 //                            !! nafiga ego tuda peredavat'
-                            destination: WeatherInCityScreen(currentCityString: searchText),
+                            destination: WeatherInCityScreen(currentCityString: searchText, currentCityLat: latitudeArr[citiesArrSearch.firstIndex(of: searchText) ?? 0], currentCityLon:  longArr[citiesArrSearch.firstIndex(of: searchText) ?? 0]),
                             label: {
                                 Text(searchText)
 

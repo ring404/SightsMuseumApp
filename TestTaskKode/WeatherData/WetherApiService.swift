@@ -7,16 +7,19 @@
 
 import Foundation
 import SwiftUI
+import MapKit
 
 class Api {
 
     let apiKey = "1d2d105ff4ef0dfe538cda8e7ceaac37"
-    let cityLat = "40.6971494"
-    let cityLong = "-74.2598636"
+    var cityLat = "40.6971494"
+    var cityLong = "-74.2598636"
     let exclude = "current,minutely,daily,alerts"
 
-    func getPosts(completion: @escaping (WeatherResult) -> Void) {
+    func getPosts(currCityCoord: CLLocationCoordinate2D, completion: @escaping (WeatherResult) -> Void) {
 
+        cityLat = String(currCityCoord.latitude)
+        cityLong = String(currCityCoord.longitude)
         guard let url = URL(string: "https://api.openweathermap.org/data/2.5/onecall?lat=\(cityLat)&lon=\(cityLong)&exclude=\(exclude)&units=metric&appid=\(apiKey)") else {print("could not create url"); return}
         URLSession.shared.dataTask(with: url) { (data, response, error) in
 
