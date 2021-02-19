@@ -28,13 +28,35 @@ import UIKit
 //
 
 struct ContentView: View {
+   
+//    var body: some View {
+////make it invisible, for testing period
+////        SearchBarView()
+//        TextListWithJsonCastles()
+//    }
+    
+    
+    
+    
+    @ObservedObject var viewModel = castleListViewModel()
 
     var body: some View {
+      NavigationView {
+        VStack {
+          SearchBar(searchTerm: $viewModel.searchTerm)
+          if viewModel.castles.isEmpty {
+            EmptyStateView()
+          } else {
+            List(viewModel.castles) { castle in
+              castleView(castle: castle)
+            }
+            .listStyle(PlainListStyle())
+          }
+        }
+        .navigationBarTitle("Music Search")
+      }
 
-        SearchBarView()
-
-    }
-
+}
 }
 
 struct WeatherInCityScreen: View {
@@ -181,14 +203,14 @@ struct MuseumFullDescScreen: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
-            .environment(\.colorScheme, .dark)
-        MuseumsListScreen(currentCityString: "Париж")
-
-    }
-}
+//struct ContentView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+//            .environment(\.colorScheme, .dark)
+//        MuseumsListScreen(currentCityString: "Париж")
+//
+//    }
+//}
 
 extension UIScreen {
     static let screenWidth = UIScreen.main.bounds.size.width

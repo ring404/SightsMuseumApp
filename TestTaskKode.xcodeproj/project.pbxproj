@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		DE526D192557041300BFD505 /* MuseumCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE526D182557041300BFD505 /* MuseumCardView.swift */; };
+		DE64AB4A25DD2ED900DF1911 /* ArtworkLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE64AB4625DD2ED900DF1911 /* ArtworkLoader.swift */; };
+		DE64AB4B25DD2ED900DF1911 /* SongListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE64AB4725DD2ED900DF1911 /* SongListViewModel.swift */; };
+		DE64AB4C25DD2ED900DF1911 /* Music_SearchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE64AB4825DD2ED900DF1911 /* Music_SearchApp.swift */; };
+		DE64AB4D25DD2ED900DF1911 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE64AB4925DD2ED900DF1911 /* DataModel.swift */; };
+		DE64AB5225DD2EF900DF1911 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE64AB5125DD2EF900DF1911 /* SwiftUIView.swift */; };
+		DE6950DE25DA8600005E5B26 /* WikiJsonAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6950DD25DA8600005E5B26 /* WikiJsonAPI.swift */; };
 		DE85EB0D2554812700A6051E /* KodeAppDeleg.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE85EB0C2554812700A6051E /* KodeAppDeleg.swift */; };
 		DE85EB0F2554812700A6051E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE85EB0E2554812700A6051E /* ContentView.swift */; };
 		DE85EB112554812700A6051E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE85EB102554812700A6051E /* Assets.xcassets */; };
@@ -46,6 +52,12 @@
 
 /* Begin PBXFileReference section */
 		DE526D182557041300BFD505 /* MuseumCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuseumCardView.swift; sourceTree = "<group>"; };
+		DE64AB4625DD2ED900DF1911 /* ArtworkLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtworkLoader.swift; sourceTree = "<group>"; };
+		DE64AB4725DD2ED900DF1911 /* SongListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongListViewModel.swift; sourceTree = "<group>"; };
+		DE64AB4825DD2ED900DF1911 /* Music_SearchApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Music_SearchApp.swift; sourceTree = "<group>"; };
+		DE64AB4925DD2ED900DF1911 /* DataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		DE64AB5125DD2EF900DF1911 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
+		DE6950DD25DA8600005E5B26 /* WikiJsonAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikiJsonAPI.swift; sourceTree = "<group>"; };
 		DE85EB092554812700A6051E /* TestTaskKode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestTaskKode.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE85EB0C2554812700A6051E /* KodeAppDeleg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KodeAppDeleg.swift; sourceTree = "<group>"; };
 		DE85EB0E2554812700A6051E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -96,6 +108,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DE64AB4525DD2EA200DF1911 /* JSONGetCastles */ = {
+			isa = PBXGroup;
+			children = (
+				DE64AB4625DD2ED900DF1911 /* ArtworkLoader.swift */,
+				DE64AB4925DD2ED900DF1911 /* DataModel.swift */,
+				DE64AB4825DD2ED900DF1911 /* Music_SearchApp.swift */,
+				DE64AB4725DD2ED900DF1911 /* SongListViewModel.swift */,
+				DE64AB5125DD2EF900DF1911 /* SwiftUIView.swift */,
+			);
+			path = JSONGetCastles;
+			sourceTree = "<group>";
+		};
 		DE734B8F25560617006C292E /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -104,6 +128,7 @@
 				DEB48E482555B8B8007F36AC /* DayLabelView.swift */,
 				DE91C5962555A54F009E6C38 /* WeatherSquareView.swift */,
 				DE91C59B2555A866009E6C38 /* WeatherScrollView.swift */,
+				DE6950DD25DA8600005E5B26 /* WikiJsonAPI.swift */,
 				DE526D182557041300BFD505 /* MuseumCardView.swift */,
 				DEE26EE425583E14003C0710 /* MuseumFullView.swift */,
 				DEE26EDF25582FC5003C0710 /* MapView.swift */,
@@ -136,6 +161,7 @@
 		DE85EB0B2554812700A6051E /* TestTaskKode */ = {
 			isa = PBXGroup;
 			children = (
+				DE64AB4525DD2EA200DF1911 /* JSONGetCastles */,
 				DE85EB0C2554812700A6051E /* KodeAppDeleg.swift */,
 				DE734B8F25560617006C292E /* Views */,
 				DEE26F2A25594292003C0710 /* MuseumsAndCitiesData */,
@@ -315,7 +341,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			shellScript = "#if which swiftlint >/dev/null; then\n#swiftlint\n#else\n#  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\n#fi\n#\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -325,7 +351,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE85EB162554812700A6051E /* CoreDataPersistence.swift in Sources */,
+				DE64AB4A25DD2ED900DF1911 /* ArtworkLoader.swift in Sources */,
+				DE64AB5225DD2EF900DF1911 /* SwiftUIView.swift in Sources */,
 				DE526D192557041300BFD505 /* MuseumCardView.swift in Sources */,
+				DE64AB4B25DD2ED900DF1911 /* SongListViewModel.swift in Sources */,
 				DEE26EEA25585B15003C0710 /* WetherApiService.swift in Sources */,
 				DEE26EEF25585B92003C0710 /* WeatherDataModel.swift in Sources */,
 				DEB48E492555B8B8007F36AC /* DayLabelView.swift in Sources */,
@@ -333,13 +362,16 @@
 				DEE26F6B2559B88B003C0710 /* SearchBarView.swift in Sources */,
 				DEE26EE525583E14003C0710 /* MuseumFullView.swift in Sources */,
 				DEE26EE025582FC5003C0710 /* MapView.swift in Sources */,
+				DE64AB4C25DD2ED900DF1911 /* Music_SearchApp.swift in Sources */,
 				DEE26EF825585D01003C0710 /* WeatherListView.swift in Sources */,
 				DEE26F6625597329003C0710 /* PredefinedDaata.swift in Sources */,
+				DE64AB4D25DD2ED900DF1911 /* DataModel.swift in Sources */,
 				DE85EB0D2554812700A6051E /* KodeAppDeleg.swift in Sources */,
 				DE91C59C2555A866009E6C38 /* WeatherScrollView.swift in Sources */,
 				DE85EB192554812700A6051E /* TestTaskKode.xcdatamodeld in Sources */,
 				DEB48E442555B71B007F36AC /* CurrentCityView.swift in Sources */,
 				DE91C5972555A54F009E6C38 /* WeatherSquareView.swift in Sources */,
+				DE6950DE25DA8600005E5B26 /* WikiJsonAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

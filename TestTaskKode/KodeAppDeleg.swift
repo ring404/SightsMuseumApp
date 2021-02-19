@@ -7,8 +7,9 @@
 
 import SwiftUI
 import UIKit
-
-@main
+//temporary commetnted out
+//uncomment!
+//@main
 struct TestTaskKodeApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self)    var appDelegate
     let persistenceController = PersistenceController.shared
