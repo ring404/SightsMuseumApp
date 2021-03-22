@@ -18,7 +18,7 @@ import UIKit
 //                  DISCLAIMER
 
 // я понимаю что у меня здесь многие вещи написаны неидеально (форс анврапы и прочее что никогда бы не использовал в продакшене)
-// но я уже не успеваю по дедлайну, чтобы привести всё в порядок
+// но я пока что не успеваю привести всё в порядок
 // так чтоу, не обессудьте
 
 // p.s да, это SwiftUI
@@ -29,34 +29,35 @@ import UIKit
 
 struct ContentView: View {
    
-//    var body: some View {
-////make it invisible, for testing period
-////        SearchBarView()
+    var body: some View {
+//make it invisible, for testing period
+        SearchBarView()
 //        TextListWithJsonCastles()
+    }
+    
+    
+    
+    
+//    @ObservedObject var viewModel = castleListViewModel()
+//
+//    var body: some View {
+//      NavigationView {
+//        VStack {
+//          SearchBar(searchTerm: $viewModel.searchTerm)
+//          if viewModel.castles.isEmpty {
+//            EmptyStateView()
+//          } else {
+//            List(viewModel.castles) { castle in
+//              castleView(castle: castle)
+//            }
+//            .listStyle(PlainListStyle())
+//          }
+//        }
+//        .navigationBarTitle("Music Search")
+//      }
+//
 //    }
     
-    
-    
-    
-    @ObservedObject var viewModel = castleListViewModel()
-
-    var body: some View {
-      NavigationView {
-        VStack {
-          SearchBar(searchTerm: $viewModel.searchTerm)
-          if viewModel.castles.isEmpty {
-            EmptyStateView()
-          } else {
-            List(viewModel.castles) { castle in
-              castleView(castle: castle)
-            }
-            .listStyle(PlainListStyle())
-          }
-        }
-        .navigationBarTitle("Music Search")
-      }
-
-}
 }
 
 struct WeatherInCityScreen: View {
@@ -113,7 +114,7 @@ struct WeatherInCityScreen: View {
             .colorInvert()
 
             NavigationLink(destination: MuseumsListScreen(currentCityString: currentCityString), isActive: $activateLink) {
-                if currentCityString == "Париж" {
+                if currentCityString == "Калининград" {
                     Button("Достопримечательности", action: { self.activateLink = true })
                         .foregroundColor(.white)
                         .frame(width: UIScreen.screenWidth - 18, height: UIScreen.screenWidth * 0.1645, alignment: .center)

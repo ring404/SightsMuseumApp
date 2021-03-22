@@ -14,6 +14,9 @@
 		DE64AB4D25DD2ED900DF1911 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE64AB4925DD2ED900DF1911 /* DataModel.swift */; };
 		DE64AB5225DD2EF900DF1911 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE64AB5125DD2EF900DF1911 /* SwiftUIView.swift */; };
 		DE6950DE25DA8600005E5B26 /* WikiJsonAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6950DD25DA8600005E5B26 /* WikiJsonAPI.swift */; };
+		DE6CDC852608CA090015F0C5 /* NewWikiParse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6CDC842608CA090015F0C5 /* NewWikiParse.swift */; };
+		DE6CDC8A2608EF120015F0C5 /* AsyncImageFromUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6CDC892608EF120015F0C5 /* AsyncImageFromUrl.swift */; };
+		DE8149A325FD3273002C613C /* CastlesJSONParse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE81499F25FD2C4C002C613C /* CastlesJSONParse.swift */; };
 		DE85EB0D2554812700A6051E /* KodeAppDeleg.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE85EB0C2554812700A6051E /* KodeAppDeleg.swift */; };
 		DE85EB0F2554812700A6051E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE85EB0E2554812700A6051E /* ContentView.swift */; };
 		DE85EB112554812700A6051E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE85EB102554812700A6051E /* Assets.xcassets */; };
@@ -58,6 +61,9 @@
 		DE64AB4925DD2ED900DF1911 /* DataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		DE64AB5125DD2EF900DF1911 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		DE6950DD25DA8600005E5B26 /* WikiJsonAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikiJsonAPI.swift; sourceTree = "<group>"; };
+		DE6CDC842608CA090015F0C5 /* NewWikiParse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWikiParse.swift; sourceTree = "<group>"; };
+		DE6CDC892608EF120015F0C5 /* AsyncImageFromUrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AsyncImageFromUrl.swift; path = ../../../Documents/SwiftStudy2/AsyncImageFromUrl.swift; sourceTree = "<group>"; };
+		DE81499F25FD2C4C002C613C /* CastlesJSONParse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastlesJSONParse.swift; sourceTree = "<group>"; };
 		DE85EB092554812700A6051E /* TestTaskKode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestTaskKode.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE85EB0C2554812700A6051E /* KodeAppDeleg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KodeAppDeleg.swift; sourceTree = "<group>"; };
 		DE85EB0E2554812700A6051E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -161,8 +167,10 @@
 		DE85EB0B2554812700A6051E /* TestTaskKode */ = {
 			isa = PBXGroup;
 			children = (
-				DE64AB4525DD2EA200DF1911 /* JSONGetCastles */,
+				DE81499F25FD2C4C002C613C /* CastlesJSONParse.swift */,
+				DE6CDC892608EF120015F0C5 /* AsyncImageFromUrl.swift */,
 				DE85EB0C2554812700A6051E /* KodeAppDeleg.swift */,
+				DE64AB4525DD2EA200DF1911 /* JSONGetCastles */,
 				DE734B8F25560617006C292E /* Views */,
 				DEE26F2A25594292003C0710 /* MuseumsAndCitiesData */,
 				DEE26EF625585CD9003C0710 /* WeatherData */,
@@ -170,6 +178,7 @@
 				DE85EB1A2554812700A6051E /* Info.plist */,
 				DE85EB172554812700A6051E /* TestTaskKode.xcdatamodeld */,
 				DE85EB122554812700A6051E /* Preview Content */,
+				DE6CDC842608CA090015F0C5 /* NewWikiParse.swift */,
 			);
 			path = TestTaskKode;
 			sourceTree = "<group>";
@@ -364,14 +373,17 @@
 				DEE26EE025582FC5003C0710 /* MapView.swift in Sources */,
 				DE64AB4C25DD2ED900DF1911 /* Music_SearchApp.swift in Sources */,
 				DEE26EF825585D01003C0710 /* WeatherListView.swift in Sources */,
+				DE6CDC852608CA090015F0C5 /* NewWikiParse.swift in Sources */,
 				DEE26F6625597329003C0710 /* PredefinedDaata.swift in Sources */,
 				DE64AB4D25DD2ED900DF1911 /* DataModel.swift in Sources */,
 				DE85EB0D2554812700A6051E /* KodeAppDeleg.swift in Sources */,
 				DE91C59C2555A866009E6C38 /* WeatherScrollView.swift in Sources */,
 				DE85EB192554812700A6051E /* TestTaskKode.xcdatamodeld in Sources */,
 				DEB48E442555B71B007F36AC /* CurrentCityView.swift in Sources */,
+				DE6CDC8A2608EF120015F0C5 /* AsyncImageFromUrl.swift in Sources */,
 				DE91C5972555A54F009E6C38 /* WeatherSquareView.swift in Sources */,
 				DE6950DE25DA8600005E5B26 /* WikiJsonAPI.swift in Sources */,
+				DE8149A325FD3273002C613C /* CastlesJSONParse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

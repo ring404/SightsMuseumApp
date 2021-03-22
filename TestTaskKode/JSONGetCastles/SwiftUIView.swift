@@ -12,9 +12,12 @@ struct MusicSearchView: View {
   @ObservedObject var viewModel: castleListViewModel
 
   var body: some View {
+    
+    
     NavigationView {
       VStack {
         SearchBar(searchTerm: $viewModel.searchTerm)
+//        Вилла_Франка
         if viewModel.castles.isEmpty {
           EmptyStateView()
         } else {
@@ -68,6 +71,12 @@ struct ArtworkView: View {
 }
 
 struct EmptyStateView: View {
+    let idFromNameResult:GetWikiAPI
+    
+    init() {
+        idFromNameResult = GetWikiAPI.init()
+    }
+    
   var body: some View {
     VStack {
       Spacer()
@@ -75,6 +84,12 @@ struct EmptyStateView: View {
         .font(.system(size: 85))
         .padding(.bottom)
       Text("Start searching for music...")
+        Text(self.idFromNameResult.getPageIdFromName(query: "Rossgarten_Gate"))
+        AsyncImage(url: URL(string: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Kaliningrad_05-2017_img12_Rossgarten_Gate.jpg/417px-Kaliningrad_05-2017_img12_Rossgarten_Gate.jpg")!,
+                       placeholder: { Text("Loading ...") },
+                       image: { Image(uiImage: $0).resizable() })
+               .frame(idealHeight: UIScreen.main.bounds.width / 2 * 3) // 2:3 aspect ratio
+       
         .font(.title)
       Spacer()
     }

@@ -43,8 +43,12 @@ struct MuseumFullView: View {
 //        var test = CGFloat(self.numbersOfLinestext / 5)
         ScrollView(.vertical) {
         VStack(alignment: .leading, spacing: .none) {
-        Image(museums.first!.imageURL!)
-            .resizable()
+            // it was used for images from assets
+//        Image(museums.first!.imageURL!)
+            AsyncImage(url: URL(string: museums.first!.imageURL!)!,
+                           placeholder: { Text("Loading ...") },
+                           image: { Image(uiImage: $0).resizable() })
+//            .resizable()
             .aspectRatio(contentMode: .fill)
             .frame(width: UIScreen.screenWidth , height: UIScreen.screenWidth * 0.7, alignment: .top)
 

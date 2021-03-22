@@ -7,7 +7,8 @@
 
 import SwiftUI
 
-@main
+//commented out since tests been done
+//@main
 struct Music_SearchApp: App {
     var body: some Scene {
         WindowGroup {

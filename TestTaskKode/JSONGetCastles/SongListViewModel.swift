@@ -32,7 +32,7 @@ class castleListViewModel: ObservableObject {
     }
   }
   
-  private func appendcastle(castle: Castle) {
+  private func appendcastle(castle: CastleAtFull) {
     let castleViewModel = CastleViewModel(castle: castle)
     DispatchQueue.main.async {
       self.castles.append(castleViewModel)
@@ -52,13 +52,13 @@ class CastleViewModel: Identifiable, ObservableObject {
   let artistName: String
   @Published var artwork: Image?
   
-  init(castle: Castle) {
+  init(castle: CastleAtFull) {
     self.id = castle.id
 //    self.trackName = castle.trackName
 //    self.artistName = castle.artistName
     
     
-    self.trackName = castle.pageid
+    self.trackName = castle.trackName
     self.artistName = castle.extract
   }
 }

@@ -69,8 +69,16 @@ struct MuseumCard: View {
             VStack {
 
                 ZStack {
-
-                    Image(item.imageURL!)
+// it was used for images from assets
+//                    Image(item.imageURL!)
+//                        .frame(width: UIScreen.screenWidth * 0.95, height: UIScreen.screenWidth * 0.34, alignment: .center)
+                    
+//                    here below is image from URL
+                    
+                    AsyncImage(url: URL(string: item.imageURL!)!,
+                                   placeholder: { Text("Loading ...") },
+                                   image: { Image(uiImage: $0).resizable() })
+//                           .frame(idealHeight: UIScreen.main.bounds.width / 2 * 3) // 2:3 aspect ratio
                         .frame(width: UIScreen.screenWidth * 0.95, height: UIScreen.screenWidth * 0.34, alignment: .center)
 
                      Rectangle().frame(width: UIScreen.screenWidth * 0.95, height: UIScreen.screenWidth * 0.34, alignment: .center)

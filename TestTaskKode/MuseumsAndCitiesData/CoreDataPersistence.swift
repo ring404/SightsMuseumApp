@@ -20,14 +20,17 @@ struct PersistenceController {
             newItem.latitude = latitudeArr[num]
             newItem.longitude = longArr[num]
         }
+        let museumFromWikiAPI = GetMuseumFromWiki.init()
+        let oneMuseumFromCoreData = museumFromWikiAPI.getPage(query: "Rossgarten_Gate")
        let  newItemFirstMuseum = Museums(context: viewContext)
-        newItemFirstMuseum.city = firstMuseum["city"]
-        newItemFirstMuseum.shortDesc = firstMuseum["shortDesc"]
-        newItemFirstMuseum.imageURL = firstMuseum["imageURL"]
-        newItemFirstMuseum.latitudeMus = Double(firstMuseum["latitudeMus"]!)!
-        newItemFirstMuseum.longitudeMus = Double(firstMuseum["longitudeMus"]!)!
-        newItemFirstMuseum.nameMus = firstMuseum["nameMus"]
-        newItemFirstMuseum.fullDesc = firstMuseum["fullDesc"]
+        
+        newItemFirstMuseum.city = oneMuseumFromCoreData["city"]
+        newItemFirstMuseum.shortDesc = oneMuseumFromCoreData["shortDesc"]
+        newItemFirstMuseum.imageURL = oneMuseumFromCoreData["imageURL"]
+        newItemFirstMuseum.latitudeMus = Double(oneMuseumFromCoreData["latitudeMus"]!)!
+        newItemFirstMuseum.longitudeMus = Double(oneMuseumFromCoreData["longitudeMus"]!)!
+        newItemFirstMuseum.nameMus = oneMuseumFromCoreData["nameMus"]
+        newItemFirstMuseum.fullDesc = oneMuseumFromCoreData["fullDesc"]
 
         let  newItemSecondMuseum = Museums(context: viewContext)
         newItemSecondMuseum.city = secondMuseum["city"]
@@ -89,14 +92,18 @@ struct PersistenceController {
                     newItem.latitude = latitudeArr[num]
                     newItem.longitude = longArr[num]
                 }
+            let museumFromWikiAPI = GetMuseumFromWiki.init()
+            let oneMuseumFromCoreData = museumFromWikiAPI.getPage(query: "Rossgarten_Gate")
+            
+            
                let  newItemFirstMuseum = Museums(context: viewContext)
-                newItemFirstMuseum.city = firstMuseum["place"]
-                newItemFirstMuseum.shortDesc = firstMuseum["shortDesc"]
-                newItemFirstMuseum.imageURL = firstMuseum["imageURL"]
-                newItemFirstMuseum.latitudeMus = Double(firstMuseum["latitudeMus"]!)!
-                newItemFirstMuseum.longitudeMus = Double(firstMuseum["longitudeMus"]!)!
-                newItemFirstMuseum.nameMus = firstMuseum["nameMus"]
-                newItemFirstMuseum.fullDesc = firstMuseum["fullDesc"]
+                newItemFirstMuseum.city = oneMuseumFromCoreData["place"]
+                newItemFirstMuseum.shortDesc = oneMuseumFromCoreData["shortDesc"]
+                newItemFirstMuseum.imageURL = oneMuseumFromCoreData["imageURL"]
+                newItemFirstMuseum.latitudeMus = Double(oneMuseumFromCoreData["latitudeMus"]!)!
+                newItemFirstMuseum.longitudeMus = Double(oneMuseumFromCoreData["longitudeMus"]!)!
+                newItemFirstMuseum.nameMus = oneMuseumFromCoreData["nameMus"]
+                newItemFirstMuseum.fullDesc = oneMuseumFromCoreData["fullDesc"]
 
                 let  newItemSecondMuseum = Museums(context: viewContext)
                 newItemSecondMuseum.city = secondMuseum["place"]

@@ -11,7 +11,7 @@ import SwiftUI
 class ArtworkLoader {
   private var dataTasks: [URLSessionDataTask] = []
 //    Image(systemName: "chevron.backward").frame(width: 25, height: 30)
-  func loadArtwork(forCastle castle: Castle, completion: @escaping((Image?) -> Void)) {
+  func loadArtwork(forCastle castle: CastleAtFull, completion: @escaping((Image?) -> Void)) {
     guard let imageUrl = URL(string: "https://ru.wikipedia.org/wiki/Заглавная_страница") else {
 //        here I replace code with the placeholder
     //    guard let imageUrl = URL(string: castle.artworkUrl) else {
