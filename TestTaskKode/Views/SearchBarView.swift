@@ -83,8 +83,9 @@ struct SearchBarView: View {
                 .navigationBarTitle(Text("Погода"))
 
                 .resignKeyboardOnDragGesture()
-            }
-        }.colorInvert()
+            } //vstack
+        } // nav view
+//        .colorInvert()
         .navigationViewStyle(StackNavigationViewStyle())
     }
 }

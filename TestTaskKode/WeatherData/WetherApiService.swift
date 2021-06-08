@@ -29,7 +29,7 @@ class Api {
             }
 
             if response != nil {
-              //  print("RESPONSE IS : \(response!)\n\n")
+                print("RESPONSE IS : \(response!)\n\n")
             }
 
             guard let data = data else {

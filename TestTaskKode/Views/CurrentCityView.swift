@@ -12,7 +12,7 @@ struct CurrentCityView: View {
     var body: some View {
 
         Text(currentCityString).font(Font.custom("SFProText-Heavy", size: 32))
-            .colorInvert()
+//            .colorInvert()
             .padding(.top, 16)
             .padding(.bottom, 8)
             .frame(width: UIScreen.screenWidth - 48, height: 48, alignment: .leading)

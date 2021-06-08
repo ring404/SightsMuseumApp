@@ -1,51 +1,51 @@
+////
+////  PostList.swift
+////  TestTaskKode
+////
+////  Created by Dmitrii on 08.11.2020.
+////
 //
-//  PostList.swift
-//  TestTaskKode
+//import Foundation
+//import SwiftUI
 //
-//  Created by Dmitrii on 08.11.2020.
+//struct WeatherList: View {
+//    @State var hourlyResults  = [Hourly]()
 //
-
-import Foundation
-import SwiftUI
-
-struct WeatherList: View {
-    @State var hourlyResults  = [Hourly]()
-
-    var body: some View {
-        VStack {
-
-            ScrollView(.horizontal) {
-                HStack {
-                    ForEach(hourlyResults) {
-                         result in
-                        VStack {
-
-                            WeatherSquare(temp: Int(result.temp), main: result.weather[0].main, icon: result.weather[0].icon)
-
-                        }
-
-                    }
-                }
-
-            }
-
-            .onAppear {
-
-                    print("It's finally loading")
-
-//                Api().getPosts(currCityCoord: currentCityCoord) { (result) in
-//                        self.hourlyResults = result.hourly
+//    var body: some View {
+//        VStack {
+//
+//            ScrollView(.horizontal) {
+//                HStack {
+//                    ForEach(hourlyResults) {
+//                         result in
+//                        VStack {
+//
+//                            WeatherSquare(temp: Int(result.temp), main: result.weather[0].main, icon: result.weather[0].icon)
+//
+//                        }
+//
 //                    }
-                }
-
-        }.background(Color.blue.opacity(0.3))
-    }
-}
-
-struct WeatherList_Previews: PreviewProvider {
-    static var previews: some View {
-        Group {
-            WeatherList()
-        }
-    }
-}
+//                }
+//
+//            }
+//
+//            .onAppear {
+//
+//                    print("It's finally loading")
+//
+////                Api().getPosts(currCityCoord: currentCityCoord) { (result) in
+////                        self.hourlyResults = result.hourly
+////                    }
+//                }
+//
+//        }.background(Color.blue.opacity(0.3))
+//    }
+//}
+//
+//struct WeatherList_Previews: PreviewProvider {
+//    static var previews: some View {
+//        Group {
+//            WeatherList()
+//        }
+//    }
+//}

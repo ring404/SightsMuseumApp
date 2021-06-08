@@ -92,26 +92,28 @@ struct WeatherInCityScreen: View {
         }
             .background(Color(UIColor(red: 0.118, green: 0.118, blue: 0.118, alpha: 1)))
             .ignoresSafeArea(.container, edges: .bottom)
-            .colorInvert()
+//            .colorInvert()
             VStack {
             CurrentCityView(currentCityString: currentCityString)
-                .colorInvert()
+//                .colorInvert()
+//                .background(Color(.white))
+//                .foregroundColor(.black)
             DayLabelViewToday()
-                .colorInvert()
+//                .colorInvert()
             WeatherScrollArr(whichDay: "Today", currentCityCoord: CLLocationCoordinate2D(latitude: currentCityLat, longitude: currentCityLon))
 //                .background(Color(UIColor(red: 0.118, green: 0.118, blue: 0.118, alpha: 1)))
-                .background(Color(.black))
+//                .background(Color(.lightGray))
                 .ignoresSafeArea(.container, edges: .bottom)
-                .colorInvert()
+//                .colorInvert()
 
             DayLabelViewTomorrow()
-                .colorInvert()
+//                .colorInvert()
             WeatherScrollArr(whichDay: "Tomorrow", currentCityCoord: CLLocationCoordinate2D(latitude: currentCityLat, longitude: currentCityLon))
 
 //            .background(Color(UIColor(red: 0.118, green: 0.118, blue: 0.118, alpha: 1)))
-                .background(Color(.black))
+//                .background(Color(.lightGray))
             .ignoresSafeArea(.container, edges: .bottom)
-            .colorInvert()
+//            .colorInvert()
 
             NavigationLink(destination: MuseumsListScreen(currentCityString: currentCityString), isActive: $activateLink) {
                 if currentCityString == "Калининград" {
@@ -167,8 +169,8 @@ struct MuseumsListScreen: View {
                              })
                 .navigationBarTitle("Достопримечательности")
         }.padding(.horizontal, 50)
-            .background(Color(UIColor(red: 0.118, green: 0.118, blue: 0.118, alpha: 1)))
-            .colorInvert()
+//            .background(Color(UIColor(red: 0.118, green: 0.118, blue: 0.118, alpha: 1)))
+//            .colorInvert()
             .ignoresSafeArea(.container, edges: .bottom)
         }
     }
@@ -185,7 +187,8 @@ struct MuseumFullDescScreen: View {
         ForEach(getMuseums.museumsFetched) { item in
             Text(item.nameMus!)
         }
-        MuseumFullView(filter: currMuseum, currentMuseumString: currMuseum).colorInvert()
+        MuseumFullView(filter: currMuseum, currentMuseumString: currMuseum)
+//            .colorInvert()
 
             .navigationBarBackButtonHidden(true)
             .navigationBarTitleDisplayMode(.inline)
@@ -200,18 +203,18 @@ struct MuseumFullDescScreen: View {
                                    self.mode.wrappedValue.dismiss()
                                }
                          })
-            .navigationBarTitle("Достопримечательность")
+            .navigationBarTitle(currMuseum)
     }
 }
 
-//struct ContentView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
-//            .environment(\.colorScheme, .dark)
-//        MuseumsListScreen(currentCityString: "Париж")
-//
-//    }
-//}
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+            .environment(\.colorScheme, .dark)
+       
+
+    }
+}
 
 extension UIScreen {
     static let screenWidth = UIScreen.main.bounds.size.width

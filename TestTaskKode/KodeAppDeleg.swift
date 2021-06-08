@@ -16,8 +16,12 @@ struct TestTaskKodeApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+//            ContentView()
+//                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+            
+            ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+//                .environment(\.colorScheme, .light)
+            
         }
     }
 }

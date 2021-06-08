@@ -14,13 +14,7 @@ struct WeatherScroll: View {
         ScrollView(.horizontal) {
             HStack {
                 Rectangle()
-                    .foregroundColor(Color(UIColor(red: 0.118, green: 0.118, blue: 0.118, alpha: 1)))
                     .frame(width: 18, alignment: .leading)
-//                WeatherSquare()
-//                WeatherSquare()
-//                WeatherSquare()
-//                WeatherSquare()
-//                WeatherSquare()
             }.ignoresSafeArea(SafeAreaRegions.container, edges: .horizontal)
 
         }.frame(width: UIScreen.screenWidth, height: 120, alignment: .leading)
@@ -36,23 +30,31 @@ struct WeatherScrollArr: View {
     @State var tomorrowsHourlyResults = ArraySlice<Hourly>()
     var whichDay :String
     var currentCityCoord:CLLocationCoordinate2D
+    
+    let currentHour = Calendar.current.component(.hour, from: Date())
+   let hoursLastsToday = 24 - Calendar.current.component(.hour, from: Date())
+    let indexWhenTomorrowEnds = 24 + Calendar.current.component(.hour, from: Date())
+    
 
     var body: some View {
-
         ScrollView(.horizontal) {
             HStack {
                 if whichDay == "Today" {
-                ForEach(todaysHourlyResults) { result in
-
-                    WeatherSquare(temp: Int(result.temp), main: result.weather[0].main, icon: result.weather[0].icon)
-
-                }
+                    
+                    
+                    ForEach(todaysHourlyResults.indices, id: \.self) { index in
+                        if index <= hoursLastsToday {
+                        WeatherSquare(temp: todaysHourlyResults[index].temp, main: todaysHourlyResults[index].weather[0].main, icon: todaysHourlyResults[index].weather[0].icon, labelHour: String(currentHour + index) + ":00")
+                        }
+                    
+                    }
                 } else if whichDay == "Tomorrow" {
 
-                    ForEach(tomorrowsHourlyResults) { result in
-
-                        WeatherSquare(temp: Int(result.temp), main: result.weather[0].main, icon: result.weather[0].icon )
-
+                  
+                        ForEach(tomorrowsHourlyResults.indices, id: \.self) { index in
+                            if index - hoursLastsToday <= 23 {
+                        WeatherSquare(temp: tomorrowsHourlyResults[index].temp, main: tomorrowsHourlyResults[index].weather[0].main, icon: tomorrowsHourlyResults[index].weather[0].icon, labelHour: String(index-hoursLastsToday) + ":00" )
+                        }
                     }
 
                 }
@@ -61,15 +63,15 @@ struct WeatherScrollArr: View {
 
         }.frame(width: UIScreen.screenWidth, height: 120, alignment: .leading)
         .onAppear {
-
+            DispatchQueue.main.async {
                 print("It's finally loading")
-                //ApiTest().getPostsTest()
             Api().getPosts(currCityCoord: currentCityCoord) { (result) in
-                    self.hourlyResults = result.hourly
-                    self.todaysHourlyResults = result.hourly[0..<24]
-                    self.tomorrowsHourlyResults = result.hourly[24..<self.hourlyResults.count]
+                self.hourlyResults = result.hourly
+                self.todaysHourlyResults = result.hourly[0..<hoursLastsToday]
+                    self.tomorrowsHourlyResults = result.hourly[hoursLastsToday..<indexWhenTomorrowEnds]
                 }
             }
+        }
     }
 }
 

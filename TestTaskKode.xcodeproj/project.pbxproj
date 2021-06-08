@@ -170,6 +170,7 @@
 				DE81499F25FD2C4C002C613C /* CastlesJSONParse.swift */,
 				DE6CDC892608EF120015F0C5 /* AsyncImageFromUrl.swift */,
 				DE85EB0C2554812700A6051E /* KodeAppDeleg.swift */,
+				DE6CDC842608CA090015F0C5 /* NewWikiParse.swift */,
 				DE64AB4525DD2EA200DF1911 /* JSONGetCastles */,
 				DE734B8F25560617006C292E /* Views */,
 				DEE26F2A25594292003C0710 /* MuseumsAndCitiesData */,
@@ -178,7 +179,6 @@
 				DE85EB1A2554812700A6051E /* Info.plist */,
 				DE85EB172554812700A6051E /* TestTaskKode.xcdatamodeld */,
 				DE85EB122554812700A6051E /* Preview Content */,
-				DE6CDC842608CA090015F0C5 /* NewWikiParse.swift */,
 			);
 			path = TestTaskKode;
 			sourceTree = "<group>";

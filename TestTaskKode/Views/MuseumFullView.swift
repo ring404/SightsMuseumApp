@@ -51,15 +51,18 @@ struct MuseumFullView: View {
 //            .resizable()
             .aspectRatio(contentMode: .fill)
             .frame(width: UIScreen.screenWidth , height: UIScreen.screenWidth * 0.7, alignment: .top)
-
-            Text(museums.first!.nameMus!).font(.title)
-//                .padding()
-                .multilineTextAlignment(.center)
-                .lineLimit(2)
-//                .frame(width:  UIScreen.screenWidth ,  alignment: .center)
-                .frame(width: UIScreen.screenWidth, height: UIScreen.screenWidth * 0.2, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+        }
+//            перенёс навзвание музея в заголовок
+//            Text(museums.first!.nameMus!).font(.title)
+////                .padding()
+//                .multilineTextAlignment(.center)
+//                .lineLimit(2)
+////                .frame(width:  UIScreen.screenWidth ,  alignment: .center)
+//                .frame(width: UIScreen.screenWidth, height: UIScreen.screenWidth * 0.2, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+//                .offset(x: 0, y:250)
             VStack(alignment: .trailing, spacing: .none) {
                 Text(museums.first!.fullDesc!)
+                   
 //                Text(String(format: "", numbersOfLinestext ?? "def"))
                     .lineLimit(self.numbersOfLinestext)
                     .multilineTextAlignment(.leading)
@@ -79,6 +82,7 @@ struct MuseumFullView: View {
                                                 }
                                             }
             }
+            
 //            .padding()
 
             VStack(alignment: .leading, spacing: 0) {
@@ -100,7 +104,7 @@ struct MuseumFullView: View {
         .ignoresSafeArea(.container, edges: .bottom)
         }
     }
-}
+
 
 struct MuseumFullView_Previews: PreviewProvider {
     static var previews: some View {

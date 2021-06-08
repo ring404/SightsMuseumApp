@@ -11,7 +11,7 @@ struct DayLabelViewToday: View {
 
     var body: some View {
         Text(returnCurrDate()).font(Font.custom("SFProText-Medium", size: 16))
-            .foregroundColor(.white)
+            .foregroundColor(.black)
             .opacity(0.48)
             .padding(.top, 0)
             .padding(.bottom, 8)
@@ -24,7 +24,7 @@ struct DayLabelViewTomorrow: View {
 
     var body: some View {
         Text(returnTomorrowDay()).font(Font.custom("SFProText-Medium", size: 16))
-            .foregroundColor(.white)
+            .foregroundColor(.black)
             .opacity(0.48)
             .padding(.top, 0)
             .padding(.bottom, 8)

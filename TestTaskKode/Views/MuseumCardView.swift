@@ -36,8 +36,8 @@ struct MuseumCard: View {
     //
 //    var currentCityString:String
 //    var currentMuseumString: String
-    var currentCityString = "Париж"
-    var currentMuseumString = "Центр Помпиду"
+//    var currentCityString = "Париж"
+//    var currentMuseumString = "Центр Помпиду"
 //
 
     @Environment(\.managedObjectContext) private var viewContext
@@ -46,8 +46,8 @@ struct MuseumCard: View {
 
     init(filter: String,  currentMuseumString: String, currentCityString:String) {
 
-        self.currentMuseumString = currentMuseumString
-        self.currentCityString = currentCityString
+//        self.currentMuseumString = currentMuseumString
+//        self.currentCityString = currentCityString
 
         self.filter = filter
         let ascendingNameSortDescriptor = NSSortDescriptor(keyPath: \Museums.nameMus, ascending: true)
@@ -77,7 +77,7 @@ struct MuseumCard: View {
                     
                     AsyncImage(url: URL(string: item.imageURL!)!,
                                    placeholder: { Text("Loading ...") },
-                                   image: { Image(uiImage: $0).resizable() })
+                                   image: { Image(uiImage: $0) })
 //                           .frame(idealHeight: UIScreen.main.bounds.width / 2 * 3) // 2:3 aspect ratio
                         .frame(width: UIScreen.screenWidth * 0.95, height: UIScreen.screenWidth * 0.34, alignment: .center)
 
@@ -90,7 +90,7 @@ struct MuseumCard: View {
                     }.frame(width: 0, height: 0, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
 
                     Text(item.nameMus!)
-                        .offset(x: 0, y:35)
+                        .offset(x: 0, y:100)
 
                         .font(Font.custom("SFProDisplay-Bold", size: 18))
                         .foregroundColor(.white)
